@@ -1,0 +1,12 @@
+[Unit]
+Description=Gather Inverter Values and feed them to Firefly Service.
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/InverterValues
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
