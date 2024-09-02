@@ -52,7 +52,7 @@ func getInverterValues() *inverterValues {
 		return nil
 	} else {
 		defer func() {
-			if resp.Body.Close(); err != nil {
+			if err := resp.Body.Close(); err != nil {
 				log.Println(err)
 			}
 		}()
@@ -92,7 +92,7 @@ func getSolar() (uint64, error) {
 		return 0, err
 	} else {
 		defer func() {
-			if resp.Body.Close(); err != nil {
+			if err := resp.Body.Close(); err != nil {
 				log.Println(err)
 			}
 		}()
